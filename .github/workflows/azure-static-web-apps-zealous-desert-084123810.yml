@@ -20,4 +20,4 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"  # Adjust if your app lives elsewhere
+          app_location: "/"
