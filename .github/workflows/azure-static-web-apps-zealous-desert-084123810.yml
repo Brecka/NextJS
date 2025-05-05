@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD
+name: azure-static-web-apps-zealous-desert-084123810
 
 on:
   push:
