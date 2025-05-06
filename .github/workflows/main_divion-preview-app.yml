@@ -42,7 +42,7 @@ jobs:
 
           # Copy only needed files to deployment folder
           mkdir -p deployment
-          cp -r .next package.json package-lock.json next.config.js public node_modules deployment/
+          cp -r .next package.json package-lock.json next.config.mjs public node_modules deployment/
           
       - name: Zip artifact for deployment (optimized)
         working-directory: deployment
