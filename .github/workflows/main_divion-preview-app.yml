@@ -24,17 +24,18 @@ jobs:
           node-version: '20.x'
           cache: 'npm' # Add caching to speed up builds
 
-      - name: npm install and build
+      - name: Force clean install and build
         run: |
-          npm ci # Use ci instead of install for more reliable builds
+          npm ci --force
           npm run build
         env:
-          NODE_ENV: production # Ensure production build
+          NODE_ENV: production
 
       - name: Prepare production deployment
         run: |
           # Remove dev dependencies after build
-          npm ci --production
+          npm prune --production
+
           # Remove unnecessary files
           rm -rf .git .github tests coverage .next/cache
           # Keep only what's needed
