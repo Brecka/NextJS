@@ -1,0 +1,66 @@
+.upload-container {
+    padding: 2rem;
+    background-color: #f8f8f8;
+  }
+  
+  .upload-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .file-button {
+    background-color: #0078d4;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .drop-zone {
+    border: 2px dashed #ccc;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .drop-zone.dragover {
+    background-color: #eef;
+  }
+  
+  .upload-table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+  }
+  
+  .upload-table th, .upload-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+  }
+  
+  .status-matched {
+    color: green;
+  }
+  
+  .status-unmatched {
+    color: red;
+  }
+  
+  .confirm-button {
+    margin-top: 1rem;
+    background-color: #28a745;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .confirm-message {
+    margin-top: 1rem;
+    color: green;
+    font-weight: bold;
+  }
+  

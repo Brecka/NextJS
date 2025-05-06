@@ -1,16 +1,10 @@
-  'use client'
-import { useSession } from 'next-auth/react'
+export const dynamic = 'force-dynamic';
+import DashboardClient from '@/components/DashboardClient';
 
-export default function Dashboard() {
-  const { data: session } = useSession()
-
-  if (!session) return <p>Loading...</p>
-
+export default function DashboardPage() {
   return (
     <div>
-      <h2>Welcome, {session.user.name}</h2>
-      <p>Your role: {session.user.role}</p>
+      <DashboardClient />
     </div>
-  )
+  );
 }
-
