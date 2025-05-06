@@ -6,13 +6,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from '../components/ui/table';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from './ui/dropdown-menu';
+
 import { MoreVertical, Trash2 } from 'lucide-react';
 
 export default function DocumentUploadTable({ files = [], onDelete }) {

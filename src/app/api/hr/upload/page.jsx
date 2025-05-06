@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "./page.css";
+
 
 const employees = [
   { id: "1", name: "Aisha Carter" },
