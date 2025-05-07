@@ -32,7 +32,7 @@ jobs:
         run: |
           rm -rf .git .github tests coverage .next/cache
           mkdir -p deployment
-          cp -r .next node_modules public src package.json package-lock.json next.config.mjs deployment/
+          cp -r .next node_modules public src package.json package-lock.json next.config.* deployment/
 
       - name: Zip artifact for deployment
         working-directory: deployment
