@@ -21,13 +21,9 @@ jobs:
           node-version: '20.x'
           cache: 'npm'
 
-      - name: Clear npm cache (optional)
-        run: npm cache clean --force
-
       - name: Install dependencies and build
         run: |
-          rm -rf node_modules package-lock.json
-          npm install
+          npm ci
           npm run build
         env:
           NODE_ENV: production
@@ -36,7 +32,7 @@ jobs:
         run: |
           rm -rf .git .github tests coverage .next/cache
           mkdir -p deployment
-          cp -r .next package.json package-lock.json next.config.mjs public node_modules deployment/
+          cp -r .next node_modules public src package.json package-lock.json next.config.mjs deployment/
 
       - name: Zip artifact for deployment
         working-directory: deployment
