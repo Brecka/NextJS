@@ -3,6 +3,7 @@
 import ComplianceMetricCard from "@/components/ComplianceMetricCard";
 import EmployeeStatusCard from "@/components/EmployeeStatusCard";
 
+
 const employees = [
   { name: "Jordan", license: true, background: true },
   { name: "Alex", license: false, background: true },
