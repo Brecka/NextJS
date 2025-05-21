@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import DocumentUploadTable from '@/components/DocumentUploadTable';
+import DashboardLayout from '@/components/DashboardLayout';
 import './page.css';
 
 const employees = [
@@ -60,6 +61,24 @@ export default function HRUploadPage() {
     setFiles(updated);
   };
 
+  const handleDocTypeChange = (index, value) => {
+    setFiles((prev) => {
+      const updated = [...prev];
+      updated[index].docType = value;
+      return updated;
+    });
+  };
+
+  const handleEmployeeAssign = (index, employeeId) => {
+    const employee = employees.find((e) => e.id === employeeId);
+    setFiles((prev) => {
+      const updated = [...prev];
+      updated[index].matchedEmployee = employee;
+      updated[index].status = 'Manually Assigned';
+      return updated;
+    });
+  };
+
   const handleConfirmUploads = async () => {
     setConfirmed(true);
     for (const fileEntry of files) {
@@ -90,6 +109,7 @@ export default function HRUploadPage() {
   };
 
   return (
+    <DashboardLayout>
     <div className="upload-container">
       <h1 className="text-2xl font-bold mb-4">📁 HR Document Upload</h1>
 
@@ -117,7 +137,13 @@ export default function HRUploadPage() {
         <div className="processing-indicator">Processing files…</div>
       )}
 
-      <DocumentUploadTable files={files} onDelete={handleDelete} />
+      <DocumentUploadTable
+        files={files}
+        onDelete={handleDelete}
+        onDocTypeChange={handleDocTypeChange}
+        onEmployeeAssign={handleEmployeeAssign}
+        employees={employees}
+      />
 
       {files.length > 0 && (
         <button className="confirm-button mt-4" onClick={handleConfirmUploads}>
@@ -131,5 +157,6 @@ export default function HRUploadPage() {
         </div>
       )}
     </div>
+  </DashboardLayout>
   );
 }
