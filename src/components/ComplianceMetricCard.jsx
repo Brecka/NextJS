@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { CheckCircle, XCircle } from "lucide-react";
 
 export default function ComplianceMetricCard({ title, value, compliant }) {
