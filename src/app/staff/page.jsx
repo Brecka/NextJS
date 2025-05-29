@@ -68,7 +68,7 @@ export default function StaffDirectory() {
                     <TableHeader>Department</TableHeader>
                     <TableHeader>Hire Date</TableHeader>
                     <TableHeader>Status</TableHeader>
-                    <TableHeader>erFiles</TableHeader>
+                    <TableHeader>Files</TableHeader>
                     <TableHeader>Email</TableHeader>
                     <TableHeader>Badge #</TableHeader>
                     <TableHeader className="text-right">Actions</TableHeader>
