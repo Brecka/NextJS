@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Button } from "@/components/ui/Button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
+import { Badge } from "@/components/ui/Badge"
+import { Input } from "@/components/ui/Input"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/Table"
+import { Checkbox } from "@/components/ui/Checkbox"
 import { AlertCircle, CheckCircle2, Clock, Download, FileCheck, FileText, Filter, History, Mail, RefreshCw, Search, Upload, X } from 'lucide-react'
 import {
   Dialog,
@@ -16,11 +16,11 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/Dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/Select"
+import { Label } from "@/components/ui/Label"
+import { Textarea } from "@/components/ui/Textarea"
+import { Separator } from "@/components/ui/Separator"
 import { toast } from "@/hooks/use-toast"
 
 export default function DocumentReview() {
@@ -296,23 +296,23 @@ export default function DocumentReview() {
 
   const DocumentTable = ({ docs, showBulkActions = false }) => (
     <Table>
-      <TableHeader>
+      <TableHead>
         <TableRow>
           {showBulkActions && (
-            <TableHead className="w-[50px]">
+            <TableHeader className="w-[50px]">
               <Checkbox checked={selectAll} onCheckedChange={handleSelectAll} aria-label="Select all documents" />
-            </TableHead>
+            </TableHeader>
           )}
-          <TableHead>Document</TableHead>
-          <TableHead>Staff Member</TableHead>
-          <TableHead>Department</TableHead>
-          <TableHead>Date Received</TableHead>
-          <TableHead>Valid Through</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Renewal Cycle</TableHead>
-          <TableHead className="text-right">Actions</TableHead>
+          <TableHeader>Document</TableHeader>
+          <TableHeader>Staff Member</TableHeader>
+          <TableHeader>Department</TableHeader>
+          <TableHeader>Date Received</TableHeader>
+          <TableHeader>Valid Through</TableHeader>
+          <TableHeader>Status</TableHeader>
+          <TableHeader>Renewal Cycle</TableHeader>
+          <TableHeader className="text-right">Actions</TableHeader>
         </TableRow>
-      </TableHeader>
+      </TableHead>
       <TableBody>
         {docs.map((doc) => (
           <TableRow key={doc.id}>

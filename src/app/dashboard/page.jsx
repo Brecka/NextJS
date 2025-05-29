@@ -21,7 +21,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog"
+} from "@/components/ui/Dialog"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/Table"
 import { BadgeCheck, Clock, AlertTriangle } from "lucide-react"
 import MainLayout from "@/components/MainLayout"
