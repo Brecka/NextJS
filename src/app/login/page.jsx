@@ -2,15 +2,22 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { FileCheck, Lock, Mail } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
-import { Checkbox } from "@/components/ui/Checkbox";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Alert, AlertDescription } from "@/components/ui/Alert";
+import { Button } from "../../components/ui/Button";
+import { Input } from "../../components/ui/Input";
+import { Label } from "../../components/ui/Label";
+import { Checkbox } from "../../components/ui/Checkbox";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/Card";
+import { Alert, AlertDescription } from "../../components/ui/Alert";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -31,13 +38,17 @@ export default function LoginPage() {
 
     setIsLoading(true);
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      router.push("/dashboard");
-    } catch {
+    const res = await signIn("credentials", {
+      redirect: false,
+      username: email,
+      password,
+    });
+
+    if (res?.error) {
       setError("Invalid email or password");
-    } finally {
       setIsLoading(false);
+    } else {
+      router.push("/dashboard");
     }
   };
 
@@ -52,7 +63,9 @@ export default function LoginPage() {
               </div>
             </div>
             <h1 className="text-2xl font-bold">ComplianceHub</h1>
-            <p className="text-sm text-muted-foreground mt-1">Secure Access Portal</p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Secure Access Portal
+            </p>
           </div>
 
           <Card className="border-none shadow-lg">
@@ -73,8 +86,8 @@ export default function LoginPage() {
                     <Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="email"
-                      type="email"
-                      placeholder="name@company.com"
+                      type="text"
+                      placeholder="admin or hr"
                       className="pl-9"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -86,7 +99,10 @@ export default function LoginPage() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <Label htmlFor="password">Password</Label>
-                    <Link href="/forgot-password" className="text-xs text-primary hover:underline">
+                    <Link
+                      href="/forgot-password"
+                      className="text-xs text-primary hover:underline"
+                    >
                       Forgot password?
                     </Link>
                   </div>
@@ -120,7 +136,9 @@ export default function LoginPage() {
               </form>
             </CardContent>
             <CardFooter className="text-center text-xs text-muted-foreground pb-6">
-              <p className="w-full">Secure access to compliance management system</p>
+              <p className="w-full">
+                Secure access to compliance management system
+              </p>
             </CardFooter>
           </Card>
 

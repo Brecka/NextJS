@@ -9,7 +9,8 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarTrigger,
-} from "@/components/ui/AppSidebar {
+} from "@/components/ui/Sidebar"
+import {
   ClipboardCheck,
   FileCheck,
   GraduationCap,
@@ -19,7 +20,6 @@ import {
   Truck,
   User2,
   Users,
-  FileText,
 } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -27,67 +27,48 @@ import { usePathname } from "next/navigation"
 export function AppSidebar() {
   const pathname = usePathname()
 
-  // Simulated user role (replace with auth-based value)
-  const userRole = "hr" // Example: "admin", "hr", "transportation", "training"
-
   const menuItems = [
     {
       title: "Dashboard",
       icon: Home,
       href: "/dashboard",
-      roles: ["admin", "hr", "transportation", "training"]
     },
     {
       title: "Staff Directory",
       icon: Users,
       href: "/staff",
-      roles: ["admin", "hr"]
     },
     {
-      title: "HR Records",
+      title: "HR Tracking",
       icon: User2,
       href: "/hr-tracking",
-      roles: ["hr"]
     },
     {
       title: "Training Management",
       icon: GraduationCap,
       href: "/training",
-      roles: ["training"]
     },
     {
-      title: "Fleet Documents",
+      title: "Transportation Records",
       icon: Truck,
       href: "/transportation",
-      roles: ["transportation"]
     },
     {
-      title: "Document Review",
-      icon: FileText,
-      href: "/documents",
-      roles: ["admin", "hr", "training", "transportation"]
-    },
-    {
-      title: "Document Upload",
-      icon: FileCheck,
-      href: "/uploads",
-      roles: ["hr", "training", "transportation"]
+      title: "Operations Compliance",
+      icon: ClipboardCheck,
+      href: "/operations",
     },
     {
       title: "Compliance Review",
       icon: ShieldCheck,
       href: "/review",
-      roles: ["admin"]
     },
     {
       title: "Settings",
       icon: Settings,
       href: "/settings",
-      roles: ["admin"]
     },
   ]
-
-  const filteredMenuItems = menuItems.filter(item => item.roles.includes(userRole))
 
   return (
     <Sidebar>
@@ -100,7 +81,7 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
-          {filteredMenuItems.map((item) => (
+          {menuItems.map((item) => (
             <SidebarMenuItem key={item.href}>
               <SidebarMenuButton
                 asChild
